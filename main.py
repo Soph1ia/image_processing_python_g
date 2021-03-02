@@ -1,7 +1,7 @@
 """
 About Project to resize the image and measure the throughput for the task
 """
-#imports
+# imports
 from PIL import Image
 import time
 import statistics
@@ -71,14 +71,14 @@ def benchmark():
             throughput_time["Image"].append(1 / ((t1 - t0) * 1000))
             average_duration_time["Image"].append(((t1 - t0) * 1000) / 1)
 
-    # Printing out results for throughput
+           # Printing out results for throughput
     for name, numbers in throughput_time.items():
         logging.info("The throughput time")
         length = str(len(numbers))
         median = str(statistics.median(numbers))
         mean = str(statistics.mean(numbers))
         stdev = str(statistics.stdev(numbers))
-        output = "FUNCTION {} used {} times. > MEDIAN {} ops/ms > MEAN {} ops/ms  > STDEV {} ops/ms".format(name,
+        output = "FUNCTION {} used {} times. > MEDIAN {} ops/s > MEAN {} ops/s  > STDEV {} ops/s".format(name,
                                                                                                             length,
                                                                                                             median,
                                                                                                             mean,
@@ -92,7 +92,7 @@ def benchmark():
         median = str(statistics.median(numbers))
         mean = str(statistics.mean(numbers))
         stdev = str(statistics.stdev(numbers))
-        output = "FUNCTION {} used {} times. > MEDIAN {} ms/ops > MEAN {} ms/ops  > STDEV {} ms/ops".format(name,
+        output = "FUNCTION {} used {} times. > MEDIAN {} s/ops > MEAN {} s/ops  > STDEV {} s/ops".format(name,
                                                                                                             length,
                                                                                                             median,
                                                                                                             mean,
